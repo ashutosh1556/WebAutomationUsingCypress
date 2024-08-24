@@ -1,23 +1,20 @@
 {
-    "FirstName": "John",
-    "LastName": "Doe",
-    "Age": 30,
-    "Email": "john.doe@example.com",
-    "Telephone": "1234567890",
-    "Password": "password123",
-    "ConfirmPassword": "password123",
-    "Address": {
-        "Street": "123 Main St",
-        "City": "Anytown",
-        "State": "CA",
-        "Zip": "12345"
-    },
-    "Hobbies": [
-        "Reading",
-        "Hiking",
-        "Coding"
-    ],
-    "IsStudent": false,
-    "Gender": "Male",
-    "SuccessMessgae": "Your Account Has Been Created!"
+  "FirstName": "John",
+  "LastName": "Doe",
+  "Age": 30,
+  "Email": "john.doe@example.com",
+  "Telephone": "1234567890",
+  "Password": "password123",
+  "ConfirmPassword": "password123",
+  "Address": {
+    "Street": "123 Main St",
+    "City": "Anytown",
+    "State": "CA",
+    "Zip": "12345"
+  },
+  "Hobbies": ["Reading", "Hiking", "Coding"],
+  "IsStudent": false,
+  "Gender": "Male",
+  "SuccessMessgae": "Your Account Has Been Created!",
+  "ErrorMessage": "Warning: E-Mail Address is already registered!"
 }
