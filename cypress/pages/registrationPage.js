@@ -156,11 +156,7 @@ export class registrationPage {
    */
   verifyErrorMessage() {
     // Get the error message element using the CSS selector from WebLocators
-    cy.get(this.WebLocators.errorMessage)
-      // Assert that the error message element is visible
-      .should("be.visible")
-      // Assert that the error message element contains the expected text
-      .contains(" Warning: E-Mail Address is already registered!");
+    return cy.get(this.WebLocators.errorMessage);
 
     // Return the current instance of the registerPage class for method chaining
     return this;

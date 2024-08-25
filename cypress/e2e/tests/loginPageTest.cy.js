@@ -28,6 +28,11 @@ describe("Login Workflow", () => {
   });
 
   it("Validate Successfull login", () => {
-    loginPageObj.verifySucessMessage(); // Verify the successful login message
+    loginPageObj
+      .verifySucessMessage() // Verify the successful login message
+      .should(($element) => {
+        expect($element).to.contain("My Account1"); // Assert that the element contains the text "My Account"
+        expect($element).to.be.visible; // Assert that the element is visible
+      });
   });
 });

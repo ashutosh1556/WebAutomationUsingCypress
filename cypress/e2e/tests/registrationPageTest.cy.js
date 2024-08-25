@@ -27,6 +27,8 @@ describe("Registration Workflow", () => {
       .confirmPassword(registrationData.ConfirmPassword) // Confirm the password from the registration data
       .acceptPrivacyPolicy() // Accept the privacy policy
       .clickContinueButton() // Click the continue button
-      .verifyErrorMessage(); // Verify that the expected error message is displayed
+      .verifyErrorMessage()
+      .should("be.visible") // Assert that the error message element is visible
+      .contains(registrationData.ErrorMessage); // Verify that the expected error message is displayed
   });
 });

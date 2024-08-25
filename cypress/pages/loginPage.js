@@ -80,11 +80,7 @@ export class loginPage {
    * @returns {loginPage} The current instance for method chaining.
    */
   verifySucessMessage() {
-    cy.get(this.webLocators.myAccountText) // Find the "My Account" text element
-      .should(($element) => {
-        expect($element).to.contain("My Account"); // Assert that the element contains the text "My Account"
-        expect($element).to.be.visible; // Assert that the element is visible
-      });
+    return cy.get(this.webLocators.myAccountText); // Find the "My Account" text element
     return this;
   }
 }

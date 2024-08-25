@@ -18,8 +18,9 @@ describe("HomePage Workflow", () => {
 
   it("Search product, add to cart", () => {
     homePageObj.searchProduct(homePageData.product.name).addToCart();
-    homePageObj
-      .verifySuccessMessage()
-      .should("contain", homePageData.messages.success);
+    homePageObj.verifySuccessMessage().should(($element) => {
+      expect($element).to.contain(homePageData.messages.success); // Assert that the element contains the expected text
+      expect($element).to.be.visible; // Assert that the element is visible
+    });
   });
 });

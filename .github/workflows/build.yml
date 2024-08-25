@@ -25,10 +25,11 @@ jobs:
         with:
           command: npm run cypress:login
 
-      - name: Mochawesome Report
+      - name: Generating Mochawesome Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: HTML Report for addToCart and login workflow
+          name: HTML Report - Login and AddToCart
           path: cypress/reports/html
 
   register-run:
@@ -46,8 +47,9 @@ jobs:
         with:
           command: npm run cypress:register
 
-      - name: Mochawesome Report
+      - name: Generating Mochawesome Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: HTML Report for register workflow
+          name: HTML Report - Registeration
           path: cypress/reports/html
