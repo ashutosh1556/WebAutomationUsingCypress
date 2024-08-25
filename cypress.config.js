@@ -39,9 +39,10 @@ module.exports = defineConfig({
     charts: true,
     reportPageTitle: "Mochawesome Report",
     embeddedScreenshots: true,
+    videoOnFailOnly: false,
     inlineAssets: true,
     saveAllAttempts: true,
-    debug: true,
+    debug: false,
   },
 
   // Configuration for end-to-end tests

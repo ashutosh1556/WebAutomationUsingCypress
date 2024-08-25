@@ -22,8 +22,8 @@ packages/errors/src/**/*.js
 packages/errors/test/**/*.js
 
 # from driver
-packages/driver/cypress/videos
-packages/driver/cypress/screenshots
+#packages/driver/cypress/videos
+#packages/driver/cypress/screenshots
 
 # from launcher, compiled .js files
 packages/launcher/index.js
@@ -72,14 +72,14 @@ system-tests/lib/fixtureDirs.ts
 
 # from npm/react
 /npm/react/bin/*
-/npm/react/cypress/videos
+#/npm/react/cypress/videos
 /npm/react/.babel-cache
 
 # from npm/webpack-dev-server
-/npm/webpack-dev-server/cypress/videos
+#/npm/webpack-dev-server/cypress/videos
 
 # from npm/grep
-/npm/grep/cypress/videos
+#/npm/grep/cypress/videos
 
 # from errors
 /packages/errors/__snapshot-images__
