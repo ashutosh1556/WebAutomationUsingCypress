@@ -17,8 +17,8 @@ export class registrationPage {
    * @returns {registerPage} - The current instance of the registerPage class
    */
   openURL() {
-    // Visit the URL specified in the Cypress environment variable 'URL'
-    cy.visit(Cypress.env("baseUrl"));
+    // Visit the URL specified in the Cypress environment variable 'registrationPageURL'
+    cy.visit(Cypress.env("registrationPageURL"));
 
     // Return the current instance of the registerPage class for method chaining
     return this;

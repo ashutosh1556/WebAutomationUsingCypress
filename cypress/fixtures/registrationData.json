@@ -1,11 +1,10 @@
 {
   "FirstName": "John",
   "LastName": "Doe",
-  "Age": 30,
   "Email": "john.doe@example.com",
   "Telephone": "1234567890",
-  "Password": "password123",
-  "ConfirmPassword": "password123",
+  "Password": "XXXXXXXXXX",
+  "ConfirmPassword": "XXXXXXXXXX",
   "Address": {
     "Street": "123 Main St",
     "City": "Anytown",

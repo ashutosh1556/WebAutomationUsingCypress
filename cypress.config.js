@@ -1,22 +1,43 @@
+// Import the defineConfig function from the Cypress module
 const { defineConfig } = require("cypress");
 
+// Export the configuration object
 module.exports = defineConfig({
+  // Configuration for running tests in parallel
   parallelization: {
-    strategy: "spec", // Run tests in parallel across multiple spec files
-    specPattern: "cypress/e2e/**/*.cy.js", // Pattern for matching spec files
+    // Strategy for running tests in parallel across multiple spec files
+    strategy: "spec",
+    // Pattern for matching spec files to run in parallel
+    specPattern: "cypress/e2e/**/*.cy.js",
   },
+
+  // Configuration for retrying tests
   retries: {
-    runMode: 2, // Number of times to retry the entire test suite
-    openMode: 2, // Number of times to retry opening the browser
+    // Number of times to retry the entire test suite
+    runMode: 2,
+    // Number of times to retry opening the browser
+    openMode: 2,
   },
+
+  // Environment variables
   env: {
+    // Flag to control whether to run registration tests or not
     runRegistrationTests: true,
-    baseUrl:
+    // URL for the home page of the application under test
+    homePageURL:
+      "https://naveenautomationlabs.com/opencart/index.php?route=common/home",
+    // URL for the registration page of the application under test
+    registrationPageURL:
       "https://naveenautomationlabs.com/opencart/index.php?route=account/register",
   },
+
+  // Configuration for end-to-end tests
   e2e: {
+    // Function to set up node event listeners
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // Implement node event listeners here
+      // For example, you can use this function to modify the configuration object
+      // or set up browser extensions, environment variables, etc.
     },
   },
 });
