@@ -1,4 +1,4 @@
-# This GitHub Actions workflow runs Cypress tests in Firefox browser
+# This GitHub Actions workflow runs Cypress tests
 # whenever code is pushed to the repository.
 
 name: Firefox specific tests
@@ -15,15 +15,21 @@ jobs:
 
       # Install dependencies, cache them and run Cypress tests
       # with the command 'npm run cypress:addToCart' in Firefox browser configured in package.json
-      - name: Cypress run
+      - name: addToCart running on Firefox browser
         uses: cypress-io/github-action@v6
         with:
           command: npm run cypress:addToCart
 
-      - name: Cypress run
+      - name: login running on Electron browser
         uses: cypress-io/github-action@v6
         with:
           command: npm run cypress:login
+
+      - name: Mochawesome Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochawesome HTML Report
+          path: cypress/reports/html
 
   register-run:
     runs-on: ubuntu-22.04
@@ -34,8 +40,14 @@ jobs:
         uses: actions/checkout@v4
 
       # Install dependencies, cache them and run Cypress tests
-      # with the command 'npm run cypress:addToCart' in Firefox browser configured in package.json
-      - name: Cypress run
+      # with the command 'npm run cypress:addToCart' in Chrome browser configured in package.json
+      - name: register running on Chrome browser
         uses: cypress-io/github-action@v6
         with:
           command: npm run cypress:register
+
+      - name: Mochawesome Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochawesome HTML Report
+          path: cypress/reports/html
