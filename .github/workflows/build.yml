@@ -5,7 +5,7 @@ name: Firefox specific tests
 on: push
 
 jobs:
-  cypress-run:
+  add-to-cart-run:
     runs-on: ubuntu-22.04
 
     steps:
@@ -14,9 +14,28 @@ jobs:
         uses: actions/checkout@v4
 
       # Install dependencies, cache them and run Cypress tests
-      # with the command 'npm run cypress:addToCart' in Firefox browser
+      # with the command 'npm run cypress:addToCart' in Firefox browser configured in package.json
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           command: npm run cypress:addToCart
-          browser: firefox
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:login
+
+  register-run:
+    runs-on: ubuntu-22.04
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install dependencies, cache them and run Cypress tests
+      # with the command 'npm run cypress:addToCart' in Firefox browser configured in package.json
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:register

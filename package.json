@@ -5,7 +5,9 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:addToCart": "cypress run --spec cypress/e2e/tests/homePageTest.cy.js",
+    "cypress:addToCart": "cypress run --spec cypress/e2e/tests/homePageTest.cy.js --browser firefox",
+    "cypress:login": "cypress run --spec cypress/e2e/tests/loginPageTest.cy.js --browser chrome",
+    "cypress:register": "cypress run --spec cypress/e2e/tests/registrationPageTest.cy.js --browser firefox",
     "lint": "eslint **/*.js --ignore-pattern node_modules/"
   },
   "repository": {
