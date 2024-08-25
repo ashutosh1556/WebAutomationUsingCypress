@@ -1,4 +1,4 @@
-name: Regression tests
+name: Chrome specific tests
 on: push
 jobs:
   cypress-run:
@@ -10,3 +10,6 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:addToCart
+          browser: chrome
