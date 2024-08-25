@@ -8,10 +8,10 @@ import registrationData from "../../fixtures/registrationData.json";
 const registrationPageObj = new registrationPage();
 
 // Describe the test suite for validating the registration workflow
-describe("Validate Registration Workflow", () => {
-  // Skip the test suite if the 'runRegistrationTests' environment variable is not set
+describe("Registration Workflow", () => {
+  // Skip the test suite if the 'testPermissionGranted' environment variable is not set
   before(() => {
-    if (!Cypress.env("runRegistrationTests")) this.skip();
+    if (!Cypress.env("testPermissionGranted")) this.skip();
   });
 
   // Test case to register a new user

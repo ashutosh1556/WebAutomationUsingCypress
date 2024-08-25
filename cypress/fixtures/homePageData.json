@@ -1,0 +1,14 @@
+{
+  "product": {
+    "name": "Macbook",
+    "brand": "Apple",
+    "productCode": "Product 16",
+    "rewardPoints": "600",
+    "availability": "In Stock",
+    "price": "$602.00",
+    "exTax": "$500.00"
+  },
+  "messages": {
+    "success": "Success: You have added MacBook to your shopping cart!"
+  }
+}

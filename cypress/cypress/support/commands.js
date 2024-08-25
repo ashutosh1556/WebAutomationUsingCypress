@@ -10,13 +10,9 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add("login", (email, password) => {
-  cy.visit(Cypress.env("baseURL") + Cypress.env("loginPageURL"));
-  cy.get("#input-email").type(email);
-  cy.get("#input-password").type(password);
-  cy.get("input[value='Login']").click();
-});
-
+// Cypress.Commands.add('login', (email, password) => { ... })
+//
+//
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //

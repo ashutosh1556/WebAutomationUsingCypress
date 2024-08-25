@@ -30,7 +30,9 @@ export class loginPage {
    * @returns {loginPage} The current instance for method chaining.
    */
   openURL() {
-    cy.visit(Cypress.env("homePageURL")); // Visit the homepage URL from the Cypress environment variables
+    // Visit the homepage URL from the Cypress environment variables
+    // cy.visit(Cypress.env("homePageURL"));
+    cy.visit(Cypress.env("baseURL") + Cypress.env("homePageURL"));
     return this;
   }
 

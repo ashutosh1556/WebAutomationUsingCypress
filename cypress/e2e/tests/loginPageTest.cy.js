@@ -17,15 +17,17 @@ const loginPageObj = new loginPage();
  * Describe block for the "Login" test suite.
  * This suite contains test cases related to the login functionality.
  */
-describe("Login", () => {
-  it("Login to the application", () => {
-    // Chain the following methods:
-    loginPageObj
-      .openURL() // Open the homepage URL
-      .navigateToLoginPage() // Navigate to the login page
-      .enterEmail(loginData.email) // Enter the email from the loginData object
-      .enterPassword(loginData.password) // Enter the password from the loginData object
-      .clickLoginBtn() // Click the login button
-      .verifySucessMessage(); // Verify the successful login message
+describe("Login Workflow", () => {
+  // Skip the test suite if the 'testPermissionGranted' environment variable is not set
+  before(() => {
+    if (!Cypress.env("testPermissionGranted")) this.skip();
+  });
+
+  before("Login", () => {
+    cy.login(loginData.testUser2.email, loginData.testUser2.password);
+  });
+
+  it("Validate Successfull login", () => {
+    loginPageObj.verifySucessMessage(); // Verify the successful login message
   });
 });

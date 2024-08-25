@@ -1,4 +1,10 @@
 {
-  "email": "ashutosh1556@hotmail.com",
-  "password": "XXXXXXXXXX"
+  "testUser1": {
+    "email": "ashutosh1556@hotmail.com",
+    "password": "XXXXXXXXXX"
+  },
+  "testUser2": {
+    "email": "test.qa@dispostable.com",
+    "password": "Cypress123!!"
+  }
 }

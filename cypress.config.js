@@ -14,21 +14,25 @@ module.exports = defineConfig({
   // Configuration for retrying tests
   retries: {
     // Number of times to retry the entire test suite
-    runMode: 2,
+    runMode: 1,
     // Number of times to retry opening the browser
-    openMode: 2,
+    openMode: 1,
   },
 
   // Environment variables
   env: {
     // Flag to control whether to run registration tests or not
-    runRegistrationTests: true,
+    testPermissionGranted: true,
+
+    // Base URL for the application under test
+    baseURL: "https://naveenautomationlabs.com/opencart/index.php?",
+
     // URL for the home page of the application under test
-    homePageURL:
-      "https://naveenautomationlabs.com/opencart/index.php?route=common/home",
+    homePageURL: "route=common/home",
     // URL for the registration page of the application under test
-    registrationPageURL:
-      "https://naveenautomationlabs.com/opencart/index.php?route=account/register",
+    registrationPageURL: "route=account/register",
+    // URL for the login page of the application under test
+    loginPageURL: "route=account/login",
   },
 
   // Configuration for end-to-end tests
