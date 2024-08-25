@@ -28,7 +28,7 @@ jobs:
       - name: Mochawesome Report
         uses: actions/upload-artifact@v4
         with:
-          name: Mochawesome HTML Report
+          name: HTML Report for addToCart and login workflow
           path: cypress/reports/html
 
   register-run:
@@ -49,5 +49,5 @@ jobs:
       - name: Mochawesome Report
         uses: actions/upload-artifact@v4
         with:
-          name: Mochawesome HTML Report
+          name: HTML Report for register workflow
           path: cypress/reports/html
