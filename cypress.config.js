@@ -34,6 +34,15 @@ module.exports = defineConfig({
     // URL for the login page of the application under test
     loginPageURL: "route=account/login",
   },
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: "Mochawesome Report",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: true,
+    debug: true,
+  },
 
   // Configuration for end-to-end tests
   e2e: {
@@ -42,6 +51,7 @@ module.exports = defineConfig({
       // Implement node event listeners here
       // For example, you can use this function to modify the configuration object
       // or set up browser extensions, environment variables, etc.
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
   },
 });
