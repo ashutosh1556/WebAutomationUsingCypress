@@ -5,6 +5,26 @@ name: Firefox specific tests
 on: push
 
 jobs:
+  login-run:
+    runs-on: ubuntu-22.04
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: login running on Electron browser
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:login
+
+      - name: Generating Mochawesome Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: HTML Report - Login
+          path: cypress/reports/html
+
   add-to-cart-run:
     runs-on: ubuntu-22.04
 
@@ -20,16 +40,11 @@ jobs:
         with:
           command: npm run cypress:addToCart
 
-      - name: login running on Electron browser
-        uses: cypress-io/github-action@v6
-        with:
-          command: npm run cypress:login
-
       - name: Generating Mochawesome Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: HTML Report - Login and AddToCart
+          name: HTML Report - AddToCart
           path: cypress/reports/html
 
   register-run:
