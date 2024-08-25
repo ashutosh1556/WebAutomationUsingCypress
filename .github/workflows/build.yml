@@ -1,12 +1,22 @@
-name: Regression tests
+# This GitHub Actions workflow runs Cypress tests in Firefox browser
+# whenever code is pushed to the repository.
+
+name: Firefox specific tests
 on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+
     steps:
+      # Checkout the code from the repository
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+
+      # Install dependencies, cache them and run Cypress tests
+      # with the command 'npm run cypress:addToCart' in Firefox browser
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          command: npm run cypress:addToCart
+          browser: firefox
