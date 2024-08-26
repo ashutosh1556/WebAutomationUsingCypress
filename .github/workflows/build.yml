@@ -1,23 +1,30 @@
 # This GitHub Actions workflow runs Cypress tests
 # whenever code is pushed to the repository.
 
+# Name of the workflow
 name: Firefox specific tests
+
+# Trigger for the workflow (runs on every push to the repository)
 on: push
 
 jobs:
+  # Job to run Cypress tests for the login functionality
   login-run:
+    # Specifies the runner environment for the job
     runs-on: ubuntu-22.04
 
     steps:
-      # Checkout the code from the repository
+      # Checks out the repository code
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Runs Cypress tests for the login functionality on the Electron browser
       - name: login running on Electron browser
         uses: cypress-io/github-action@v6
         with:
           command: npm run cypress:login
 
+      # Generates and uploads a Mochawesome HTML report for the login tests
       - name: Generating Mochawesome Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -25,16 +32,15 @@ jobs:
           name: HTML Report - Login
           path: cypress/reports/html
 
+  # Job to run Cypress tests for the add-to-cart functionality
   add-to-cart-run:
     runs-on: ubuntu-22.04
 
     steps:
-      # Checkout the code from the repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Install dependencies, cache them and run Cypress tests
-      # with the command 'npm run cypress:addToCart' in Firefox browser configured in package.json
+      # Runs Cypress tests for the add-to-cart functionality on the Firefox browser
       - name: addToCart running on Firefox browser
         uses: cypress-io/github-action@v6
         with:
@@ -47,16 +53,15 @@ jobs:
           name: HTML Report - AddToCart
           path: cypress/reports/html
 
+  # Job to run Cypress tests for the registration functionality
   register-run:
     runs-on: ubuntu-22.04
 
     steps:
-      # Checkout the code from the repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Install dependencies, cache them and run Cypress tests
-      # with the command 'npm run cypress:addToCart' in Chrome browser configured in package.json
+      # Runs Cypress tests for the registration functionality on the Chrome browser
       - name: register running on Chrome browser
         uses: cypress-io/github-action@v6
         with:
@@ -69,18 +74,19 @@ jobs:
           name: HTML Report - Registeration
           path: cypress/reports/html
 
-  slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Slack Notification
-        if: always()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: "Test Automation Report - https://github.com/ashutosh1556/WebAutomationUsingCypress/actions/runs/${{github.run_id}}"
-          SLACK_TITLE: Cypress Web Test
-          SLACK_USERNAME: Automation Bot
+  # Commented out section for Slack notification
+  # slackNotification:
+  #   name: Slack Notification
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Slack Notification
+  #       if: always()
+  #       uses: rtCamp/action-slack-notify@v2
+  #       env:
+  #         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+  #         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+  #         SLACK_ICON: https://github.com/rtCamp.png?size=48
+  #         SLACK_MESSAGE: "Test Automation Report - https://github.com/ashutosh1556/WebAutomationUsingCypress/actions/runs/${{github.run_id}}"
+  #         SLACK_TITLE: Cypress Web Test
+  #         SLACK_USERNAME: Automation Bot
