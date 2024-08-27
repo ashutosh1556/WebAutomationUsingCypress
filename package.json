@@ -26,8 +26,6 @@
     "cypress": "^13.13.3",
     "cypress-mochawesome-reporter": "^3.8.2",
     "eslint": "^9.9.1",
-    "eslint-plugin-cypress": "^3.5.0",
-    "eslint-plugin-react": "^7.35.0",
-    "globals": "^15.9.0"
+    "eslint-plugin-cypress": "^3.5.0"
   }
 }
