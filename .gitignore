@@ -1,3 +1,9 @@
+# Project-specific
+cypress.env.json
+cypress/videos/
+cypress/screenshots/
+cypress/reports/
+cypress/downloads/
 
 ### Cypress Custom .gitignore ###
 *.log.*
